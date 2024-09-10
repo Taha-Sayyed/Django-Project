@@ -30,11 +30,9 @@ def tweet_edit(request,tweet_id):
         form=TweetForm(request.POST,request.FILES,instance=tweet)
         if form.is_valid():
             tweet=form.save(commit=False)
-            tweet.user=request.user
+            tweet.user=request.user #Since form is not associated with user, we append request.user with
             tweet.save()
-            return redirect('tweet_list')
-
-        
+            return redirect('tweet_list')   
     else:
         form=TweetForm(instance=tweet)
     return render(request,'tweet_form.html',{'form':form})
