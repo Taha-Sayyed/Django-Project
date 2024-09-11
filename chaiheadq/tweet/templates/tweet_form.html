@@ -6,7 +6,8 @@
 
 <h1 class="text-center mt-4">Welcome to Chai's Django Project</h1>
 
-<h2>{% if form.instance.pk %} 
+{% comment %} checks whether the pk (primary key) of the form's instance exists {% endcomment %}
+<h2>{% if form.instance.pk %}  
     Edit Tweet 
     {% else %} 
     Create tweet 
